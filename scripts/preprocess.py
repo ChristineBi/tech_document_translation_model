@@ -1,6 +1,9 @@
 import pandas as pd
 import re
 import os
+import json
+import time
+import collections
 
 # ── 路径 ──────────────────────────────────────────
 INPUT  = 'data/raw/tech_document_translation_data.csv'
@@ -11,18 +14,18 @@ os.makedirs('data/processed', exist_ok=True)
 df = pd.read_csv(INPUT, encoding='utf-8-sig')
 print(f'原始数据: {len(df)} 条')
 
-# ── 步骤1: 去重 ───────────────────────────────────
+# ── 去重 ───────────────────────────────────
 df = df.drop_duplicates(subset=['chinese', 'japanese', 'indonesian'])
 print(f'去重后: {len(df)} 条')
 
-# ── 步骤2: 去除空值 ───────────────────────────────
+# ── 去除空值 ───────────────────────────────
 df = df.dropna(subset=['chinese', 'japanese', 'indonesian'])
 df = df[df['chinese'].str.strip() != '']
 df = df[df['japanese'].str.strip() != '']
 df = df[df['indonesian'].str.strip() != '']
 print(f'去除空值后: {len(df)} 条')
 
-# ── 步骤3: 混语标记（先标记，暂不删除）─────────────
+# ── 混语标记─────────────
 def chinese_char_ratio(text):
     if not isinstance(text, str) or len(text) == 0:
         return 0.0
@@ -39,17 +42,8 @@ print(f'混语样本数: {mixed_count} ({mixed_count/len(df)*100:.1f}%)')
 # ── 保存 ──────────────────────────────────────────
 df.to_csv(OUTPUT, index=False, encoding='utf-8-sig')
 print(f'\n已保存至 {OUTPUT}')
-print(df['has_mixed_lang'].value_counts())
 
-import json
-import time
-import re
-import collections
-import pandas as pd
-
-df = pd.read_csv('data/processed/cleaned.csv', encoding='utf-8-sig')
-
-# 提取印尼语里所有中文词块（完整版，不只是top30）
+# 提取印尼语里所有中文词汇（长度2-10），统计频率
 def extract_chinese_terms(text):
     return re.findall(r'[\u4e00-\u9fff]{2,10}', text)
 
@@ -57,7 +51,7 @@ id_terms = collections.Counter()
 for text in df['indonesian']:
     id_terms.update(extract_chinese_terms(text))
 
-# 所有出现过的术语（不限top30）
+# 所有出现过的术语列表（按频率排序）
 all_terms = [term for term, count in id_terms.most_common()]
 print(f'共发现 {len(all_terms)} 个独立术语')
 print(all_terms[:10])
