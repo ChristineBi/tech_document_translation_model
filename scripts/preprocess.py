@@ -4,6 +4,7 @@ import os
 import json
 import time
 import collections
+from deep_translator import GoogleTranslator
 
 # ── 路径 ──────────────────────────────────────────
 INPUT  = 'data/raw/tech_document_translation_data.csv'
@@ -54,4 +55,30 @@ for text in df['indonesian']:
 # 所有出现过的术语列表（按频率排序）
 all_terms = [term for term, count in id_terms.most_common()]
 print(f'共发现 {len(all_terms)} 个独立术语')
-print(all_terms[:10])
+print(all_terms[:10]) 
+
+""" # 批量翻译
+glossary = {}
+for term in all_terms:
+    try:
+        ja = GoogleTranslator(source='zh-CN', target='ja').translate(term)
+        id_ = GoogleTranslator(source='zh-CN', target='id').translate(term)
+        glossary[term] = {"ja": ja, "id": id_}
+        print(f'{term} → ja: {ja}, id: {id_}')
+        time.sleep(0.5)  # 避免请求太频繁
+    except Exception as e:
+        print(f'翻译失败 {term}: {e}')
+        glossary[term] = {"ja": "", "id": ""}
+
+# 保存
+with open('data/glossary.json', 'w', encoding='utf-8') as f:
+    json.dump(glossary, f, ensure_ascii=False, indent=2)
+
+print(f'\n完成，共 {len(glossary)} 个术语，已保存至 data/glossary.json') """
+
+##然后对glossary.json进行人工审核，修正错误翻译，补充遗漏术语，保存至 data/glossary_reviewed.json，随后在translate_sub.py里使用这个审核后的词表进行替换。
+
+#修改了18个术语，主要三类问题：
+#日常用语误用：事务→トランザクション、快照→snapshot、镜像仓库→container registry
+#助词冗余：日语里技术术语去掉の，比如リソースのスケジューリング→リソーススケジューリング
+#IT领域惯例：带宽→bandwidth、节点→node、重启→restart 这类直接用英文更标准
