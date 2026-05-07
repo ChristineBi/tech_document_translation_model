@@ -1,0 +1,170 @@
+{
+  "故障恢复": {
+    "ja": "障害復旧",
+    "id": "pemulihan kesalahan",
+    "note": "ja: 修正，'回復'是日常用语，云计算语境用'障害復旧'"
+  },
+  "批量处理": {
+    "ja": "バッチ処理",
+    "id": "pemrosesan batch"
+  },
+  "资源调度": {
+    "ja": "リソーススケジューリング",
+    "id": "penjadwalan sumber daya",
+    "note": "ja: 去掉'の'，技术术语不用助词"
+  },
+  "数据存储": {
+    "ja": "データストレージ",
+    "id": "penyimpanan data"
+  },
+  "安全防护": {
+    "ja": "セキュリティ保護",
+    "id": "perlindungan keamanan"
+  },
+  "性能监控": {
+    "ja": "パフォーマンス監視",
+    "id": "pemantauan kinerja"
+  },
+  "监控告警配置": {
+    "ja": "監視アラート設定",
+    "id": "konfigurasi pemantauan alarm",
+    "note": "ja: 修正语序，监视在前；id: 修正语序"
+  },
+  "安全防护设置": {
+    "ja": "セキュリティ保護設定",
+    "id": "pengaturan perlindungan keamanan"
+  },
+  "故障排查指南": {
+    "ja": "トラブルシューティングガイド",
+    "id": "panduan pemecahan masalah",
+    "note": "id: 修正，'Mengatasi Masalah'偏口语，'pemecahan masalah'更技术化"
+  },
+  "负载均衡配置": {
+    "ja": "ロードバランサー設定",
+    "id": "konfigurasi load balancing",
+    "note": "ja: 修正，业界标准用'ロードバランサー'；id: IT领域直接用英文'load balancing'"
+  },
+  "接口调用": {
+    "ja": "API呼び出し",
+    "id": "pemanggilan API"
+  },
+  "云计算基础": {
+    "ja": "クラウドコンピューティング基礎",
+    "id": "dasar komputasi awan",
+    "note": "ja: 去掉'の'；id: 简化，去掉复数形式"
+  },
+  "云服务器操作": {
+    "ja": "クラウドサーバー操作",
+    "id": "operasi server cloud",
+    "note": "ja: 修正，'運用'偏运维含义，'操作'更准确；id: cloud比awan更标准"
+  },
+  "对象存储使用": {
+    "ja": "オブジェクトストレージ使用",
+    "id": "penggunaan object storage",
+    "note": "ja: 去掉'の使用量'（使用量=usage量，不准确）；id: 术语用英文object storage"
+  },
+  "容器服务部署": {
+    "ja": "コンテナサービスデプロイ",
+    "id": "deployment layanan kontainer",
+    "note": "ja: 去掉'メント'简化；id: deployment是IT标准词"
+  },
+  "数据库运维": {
+    "ja": "データベース運用保守",
+    "id": "operasional database",
+    "note": "ja: 去掉'・'符号统一格式"
+  },
+  "生命周期": {
+    "ja": "ライフサイクル",
+    "id": "siklus hidup"
+  },
+  "存储类型": {
+    "ja": "ストレージタイプ",
+    "id": "jenis penyimpanan"
+  },
+  "备份恢复": {
+    "ja": "バックアップと復元",
+    "id": "backup dan pemulihan",
+    "note": "id: 修正，'Cadangkan'是动词（去备份），'backup'是名词更准确"
+  },
+  "实例扩容": {
+    "ja": "インスタンス拡張",
+    "id": "perluasan instance",
+    "note": "ja: 去掉'の'；id: 修正，'Ekspansi'偏西班牙语风格"
+  },
+  "跨域访问": {
+    "ja": "クロスドメインアクセス",
+    "id": "akses lintas domain"
+  },
+  "算力": {
+    "ja": "コンピューティングパワー",
+    "id": "daya komputasi",
+    "note": "ja: 修正，'能力'太泛，'パワー'是算力的标准译法"
+  },
+  "事务": {
+    "ja": "トランザクション",
+    "id": "transaksi",
+    "note": "ja/id: 修正，数据库事务必须用transaction，原译'事務/urusan'是日常用语"
+  },
+  "虚拟化": {
+    "ja": "仮想化",
+    "id": "virtualisasi"
+  },
+  "索引优化": {
+    "ja": "インデックス最適化",
+    "id": "optimasi indeks",
+    "note": "ja: 去掉'の'"
+  },
+  "读写分离": {
+    "ja": "読み書き分離",
+    "id": "pemisahan baca-tulis",
+    "note": "ja: 修正简化；id: 修正语序，原译语序不自然"
+  },
+  "云原生": {
+    "ja": "クラウドネイティブ",
+    "id": "cloud native",
+    "note": "id: 修正，IT领域直接用英文'cloud native'，'awan asli'是字面直译"
+  },
+  "快照": {
+    "ja": "スナップショット",
+    "id": "snapshot",
+    "note": "id: 修正，'Foto'是照片，技术术语用'snapshot'"
+  },
+  "带宽": {
+    "ja": "帯域幅",
+    "id": "bandwidth",
+    "note": "id: IT领域直接用英文'bandwidth'更标准"
+  },
+  "容器网络": {
+    "ja": "コンテナネットワーク",
+    "id": "jaringan kontainer"
+  },
+  "锁机制": {
+    "ja": "ロック機構",
+    "id": "mekanisme penguncian",
+    "note": "id: 修正，'kunci'是钥匙/锁名词，'penguncian'才是锁定机制"
+  },
+  "镜像仓库": {
+    "ja": "コンテナレジストリ",
+    "id": "container registry",
+    "note": "ja/id: 修正，原译'鏡の倉庫/Gudang cermin'是字面直译，容器镜像仓库标准术语是container registry"
+  },
+  "重启": {
+    "ja": "再起動",
+    "id": "restart",
+    "note": "id: IT领域直接用'restart'更标准"
+  },
+  "节点": {
+    "ja": "ノード",
+    "id": "node",
+    "note": "id: 技术术语直接用'node'"
+  },
+  "弹性": {
+    "ja": "弾力性",
+    "id": "elastis",
+    "note": "ja: 修正，云计算弹性用'弾力性'；id: 修正，'elastisitas'偏学术，'elastis'更常用"
+  },
+  "API接口调用": {
+    "ja": "API呼び出し",
+    "id": "pemanggilan API"
+  }
+}
