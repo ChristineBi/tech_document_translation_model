@@ -76,7 +76,7 @@ with open('data/glossary.json', 'w', encoding='utf-8') as f:
 
 print(f'\n完成，共 {len(glossary)} 个术语，已保存至 data/glossary.json') """
 
-##然后对glossary.json进行人工审核，修正错误翻译，补充遗漏术语，保存至 data/glossary_reviewed.json，随后在translate_sub.py里使用这个审核后的词表进行替换。
+##然后对glossary.json进行人工审核，修正错误翻译，补充遗漏术语，保存至 data/glossary_reviewed.json，随后在replace_terms.py里使用这个审核后的词表进行替换。
 
 #修改了18个术语，主要三类问题：
 #日常用语误用：事务→トランザクション、快照→snapshot、镜像仓库→container registry
