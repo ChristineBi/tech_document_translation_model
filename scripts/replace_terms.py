@@ -33,8 +33,17 @@ def chinese_char_ratio(text):
 df['zh_ratio_in_id'] = df['indonesian'].apply(chinese_char_ratio)
 still_mixed_id = (df['zh_ratio_in_id'] > 0.05).sum()
 print(f'替换后印尼语仍有混语: {still_mixed_id} 条')
-# 注意：日语混语率不作为质量指标，因为日语本身含汉字，会产生误报
-# 仅用印尼语混语率验证替换效果
+
+# ── 日语验证（字符占比法对日语无效：正常日文本身含汉字，会误报）──
+# 验证1: 术语表中文key精确匹配 —— 替换干净则应为 0
+ja_residual = df['japanese'].apply(lambda t: any(k in t for k in glossary)).sum()
+print(f'替换后日语仍含术语表中文术语: {ja_residual} 条')
+
+# 验证2: 简体特有字符兜底 —— 中文简化字与日语字形不同（资/调/务 vs 資/調/務），
+# 可发现术语表未覆盖的中文残留；对纯中日同形字术语（如"快照"）无效，与验证1互补
+SIMP_CHARS = '资调务监设储护复处负载计类备实扩访问读优锁镜仓带网络拟弹库运维对查础节启'
+simp_residual = df['japanese'].str.contains('[' + SIMP_CHARS + ']', regex=True).sum()
+print(f'替换后日语仍含简体特有字符: {simp_residual} 条')
 
 
 # 打印几条看效果
