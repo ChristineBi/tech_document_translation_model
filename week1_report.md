@@ -109,3 +109,16 @@ train / val / test（3592 / 449 / 450）
 | `logs/sentence_length.png` | 三语言句长分布图 |
 | `logs/untranslated_terms_top20.png` | 未翻译中文术语频率 Top 20 |
 | `logs/duplicate_by_topic.png` | 各 topic 重复率分布图 |
+
+---
+
+## 五、导师反馈与改进
+
+本报告提交后，导师针对 EDA 深度与代码规范提出四点意见，已逐条改进：
+
+| 导师反馈 | 对应改进 |
+|----------|----------|
+| 混语检测只统计样本量，未提取未翻译术语 | 从印尼语提取 35 个未翻译术语及频率清单（`week1_eda.ipynb` Cell 4.1） |
+| 重复样本只统计总量，未分析分布 | 新增按 topic 的重复率分析，发现操作类约 91-95%、配置类约 74%（Cell 5.1） |
+| `plt.rcParams` 字体设置重复书写 | 抽出 `setup_plot_style()` 函数复用 |
+| 日语混语只说"无法检测"，未给替代思路 | 新增术语匹配 + 简体字形双路检测（Cell 4.2），`replace_terms.py` 补三重验证 |
